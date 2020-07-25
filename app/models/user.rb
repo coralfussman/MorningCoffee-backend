@@ -3,5 +3,5 @@ class User < ApplicationRecord
     has_many :themes, through: :dashboards
     has_secure_password
 
-    validates_uniqueness_of :username
+    # validates_uniqueness_of :username
 end

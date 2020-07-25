@@ -1,4 +1,6 @@
 class WidgetDashesController < ApplicationController
+    before_action :authorized, only:[:create]
+
     def index
         @widget_dash = WidgetDash.all
         render json:@widget_dash
@@ -8,8 +10,8 @@ class WidgetDashesController < ApplicationController
         render json:@widget_dash
     end
     def create
-        @widget_dash = @user.dashboard.widget_dash.create(widget_dash_params)
-        if @user.valid?
+        @widget_dash = WidgetDash.create(widget_dash_params)
+        if @widget_dash.valid?
             render json: @widget_dash
             
         else
