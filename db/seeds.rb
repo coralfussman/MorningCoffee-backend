@@ -28,23 +28,25 @@ meg = User.create(name: 'Meghann' , username: 'homegirl', password:'winteriscomi
 
 coffee = Theme.create(name: "coffee")
 coral = Theme.create(name: "coral")
-blue = Theme.create(name: "blue")
-yellow = Theme.create(name: "yellow")
-dark = Theme.create(name: "darkmode")
+acqua = Theme.create(name: "acqua")
+lemon = Theme.create(name: "lemon")
+abstract = Theme.create(name: "abstract")
+summer = Theme.create(name: "summer")
+dark =  Theme.create(name: "darkmode")
 
     
 cd = Dashboard.create(user_id: cor.id,theme_id: coffee.id)
-ed = Dashboard.create(user_id: emily.id,theme_id: yellow.id)
-eed = Dashboard.create(user_id: eric.id,theme_id: blue.id)
+ed = Dashboard.create(user_id: emily.id,theme_id: lemon.id)
+eed = Dashboard.create(user_id: eric.id,theme_id: acqua.id)
 md = Dashboard.create(user_id: meg.id,theme_id: coral.id)
 
 
 weather = Widget.create(title: "weather")
 currency = Widget.create(title: "currency")
 quote = Widget.create(title: "quote")
-photo = Widget.create(title: "photo")
+calendar = Widget.create(title: "calendar")
 clock = Widget.create(title: "clock")
-zodiac = Widget.create(title: "zodiac")
+music = Widget.create(title: "zodiac")
 game = Widget.create(title: "game")
 unit = Widget.create(title: "unit")
 

@@ -12,7 +12,8 @@ class WidgetDashesController < ApplicationController
     def create
         @widget_dash = WidgetDash.create(widget_dash_params)
         if @widget_dash.valid?
-            render json: @widget_dash
+            render json:  @widget_dash.widget.attributes.merge({widget_dash_id: @widget_dash.id})
+
             
         else
             render json: {error: "something went wrong"}

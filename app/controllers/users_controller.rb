@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authorized, only:[:stay_logged_in]
+    before_action :authorized, only:[:stay_logged_in, :update]
 
     def index
         @user = User.all
@@ -34,8 +34,9 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
+        @user.dashboards.create(theme_id: 1)
         if @user.valid?
-            wristband = encode_token({userid: @user.id})
+            wristband = encode_token({user_id: @user.id})
             render json: {
                 user: UserSerializer.new(@user),
                 token: wristband
@@ -43,6 +44,14 @@ class UsersController < ApplicationController
         else
             render json: {error: "A User with that username already exists, try another "}
         end
+    end
+
+    def update
+        
+        @user.dashboards.first.update(theme_id: params[:new_id])
+       
+    
+        render json: @user
     end
 
     private

@@ -9,7 +9,7 @@ class DashboardsController < ApplicationController
     end
     def create
         @dashboard = @user.dashboard.create(dashboard_params)
-        if @user.valid?
+        if @dashboard.valid?
             render json: @dashboard
             
         else
